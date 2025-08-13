@@ -49,7 +49,7 @@ email = faker.email(server="gmail.com")
 ### 3.5. Sinh ngày sinh
 ```python
 birthday = faker.birthday(min=1990, max=2005)
-print(birthday.to_string("dd/mm/yyyy"))
+print(birthday.format("dd/mm/yyyy"))
 ```
 
 ## 4. Sinh toàn bộ thông tin
@@ -64,9 +64,9 @@ print(info.fullName, info.username, info.birthday)
 ```python
 faker = Faker()
 dob = faker.birthday(min=1995, max=2005)
-print(dob.to_string("dd-mm-yyyy"))   # 05-07-1999
-print(dob.to_string("d/m/yy"))       # 5/7/99
-print(dob.to_string("yyyy.mm.dd"))   # 1999.07.05
+print(dob.format("dd-mm-yyyy"))   # 05-07-1999
+print(dob.format("d/m/yy"))       # 5/7/99
+print(dob.format("yyyy.mm.dd"))   # 1999.07.05
 ```
 
 ### 5.2. Sinh username kèm hậu tố số hoặc chữ
