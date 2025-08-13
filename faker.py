@@ -14,22 +14,6 @@ printable = digits + ascii_letters + punctuation + whitespace
 CACHE_OF_DATA = {}
 
 @dataclass
-class Information:
-    fullName: str
-    firstName: str
-    lastName: str
-    ufirstName: str
-    ulastName: str
-    username: str
-    birthday: str
-
-    def __getitem__(self, key) -> str:
-        return getattr(self, key)
-    
-    def __setitem__(self, key, value) -> None:
-        return setattr(self, key, value)
-
-@dataclass
 class DateOfBirth:
     day: int 
     month: int 
@@ -75,6 +59,29 @@ class DateOfBirth:
             .replace("m", self.m)
             .replace("y", self.y)
             )
+    def json(self):
+        return self.to_dict()
+    
+@dataclass
+class Information:
+    fullName: str
+    firstName: str
+    lastName: str
+    ufirstName: str
+    ulastName: str
+    username: str
+    birthday: DateOfBirth
+
+    def __getitem__(self, key) -> str:
+        return getattr(self, key)
+    
+    def __setitem__(self, key, value) -> None:
+        return setattr(self, key, value)
+    
+    def json(self):
+        my_set = self.__dict__
+        my_set["birthday"] = self.birthday.json()
+        return my_set
 
 class FakerError(Exception):
     """ Generator name error"""
