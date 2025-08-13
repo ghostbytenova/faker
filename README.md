@@ -1,4 +1,4 @@
-# faker
+# Faker Infomation - Giả lập thông tin
 Python Faker module for generating realistic fake user data — names, usernames, emails, birthdays, and more. Supports Vietnamese language and customizable formats.
 
 # Hướng dẫn sử dụng Module Faker
@@ -56,6 +56,9 @@ print(birthday.format("dd/mm/yyyy"))
 ```python
 info = Faker.generateInformation()
 print(info.fullName, info.username, info.birthday)
+print(info.fullName)   # "Minh Nguyễn"
+print(info.username)   # "Minh_Nguyen"
+print(info.birthday)   # "15/09/2000"
 ```
 
 ## 5. Ví dụ nâng cao
