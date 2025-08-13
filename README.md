@@ -84,7 +84,7 @@ print(faker.username(sep="", ext=str, range_ext=6))             # tranthaoAbX9kP
 import json
 
 users = [Faker.generateInformation() for _ in range(5)]
-print(json.dumps([u.__dict__ for u in users], ensure_ascii=False, indent=2))
+print(json.dumps([u.json() for u in users], ensure_ascii=False, indent=2))
 ```
 
 ### 5.4. Loại bỏ dấu tiếng Việt
